@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.div`
+  cursor: pointer;
   margin-top: 4rem;
-  margin-bottom: 4rem;
-  margin-right: 35rem;
+  margin-bottom: 3rem;
   position: relative;
   width: 70px;
   height: 70px;
@@ -50,8 +50,14 @@ const Button = styled.div`
   }
 `;
 
-const AddButton = ({ outline, pipe, handleAdd }) => (
-  <Button outline={outline} pipe={pipe} className="vertical-flex-align">
+const AddButton = ({ outline, pipe, onClick }) => (
+  <Button
+    role="button"
+    outline={outline}
+    pipe={pipe}
+    className="vertical-flex-align"
+    onClick={onClick}
+  >
     +
   </Button>
 );

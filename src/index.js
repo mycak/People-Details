@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import App from './components/App';
+
 import GlobalStyles from './styles/GlobalStyles';
 
 ReactDOM.render(

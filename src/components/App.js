@@ -1,34 +1,20 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-
 import AddButton from './AddButton';
 import Branch from './Branch';
 import Header from './Header';
+import Popup from './Popup';
+import { initialData } from '../utils/initialData';
 
-const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const ShiftContainer = styled.div`
+  margin-left: -35rem;
 `;
 
 function App() {
-  const [state, setState] = useState([
-    {
-      id: 0,
-      kind: 'singleDetail',
-      desc: 'Age 40+',
-    },
-    {
-      id: 1,
-      kind: 'detailTree',
-      desc: 'Ethncity',
-    },
-    {
-      id: 2,
-      kind: 'singleItem',
-      desc: 'Income yearly 45k USD+',
-    },
-  ]);
+  const [state, setState] = useState(initialData);
+  const [popupIsOpen, setPopapIsOpen] = useState(false);
+  const newId = state.length ? state[state.length - 1].id + 1 : 0;
+  console.log(newId);
 
   const handleDelete = useCallback(
     (i) => {
@@ -38,12 +24,22 @@ function App() {
     [state]
   );
 
-  const handleAdd = () => {
-    console.log('esa');
-  };
+  const closePopup = useCallback(() => {
+    setPopapIsOpen(false);
+  }, []);
+  const openPopup = useCallback(() => {
+    setPopapIsOpen(true);
+  }, []);
+
+  const handleAdd = useCallback(
+    (newDetail) => {
+      setState([...state, newDetail]);
+    },
+    [state]
+  );
 
   return (
-    <AppContainer>
+    <div className="container">
       <Header text="People" />
       {state.map((item, i) => (
         <Branch
@@ -55,8 +51,21 @@ function App() {
           handleDelete={handleDelete}
         />
       ))}
-      <AddButton outline handleAdd={handleAdd} pipe={!!state.length} />
-    </AppContainer>
+      <ShiftContainer>
+        <AddButton
+          outline
+          handleAdd={handleAdd}
+          pipe={!!state.length}
+          onClick={openPopup}
+        />
+      </ShiftContainer>
+      <Popup
+        popupIsOpen={popupIsOpen}
+        closePopup={closePopup}
+        handleAdd={handleAdd}
+        newId={newId}
+      />
+    </div>
   );
 }
 
