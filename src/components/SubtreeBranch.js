@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SingleDetail from './SingleDetail';
-import Subtree from './Subtree';
+import SubtreeSingleItem from './SubtreeSingleItem';
 
 const BranchStyles = styled.div`
   margin-top: 1.9em;
@@ -43,25 +42,15 @@ const DetailStyles = styled.div`
   }
 `;
 
-const Branch = ({ operator, id, desc, handleDelete, kind, components }) => (
+const SubtreeBranch = ({ operator, id, desc, handleDelete }) => (
   <BranchStyles>
     <OperatorStyles className="vertical-flex-align">
       <p>{operator}</p>
     </OperatorStyles>
     <DetailStyles>
-      {kind === 'singleDetail' && (
-        <SingleDetail handleDelete={handleDelete} desc={desc} id={id} />
-      )}
-      {kind === 'detailTree' && (
-        <Subtree
-          handleDelete={handleDelete}
-          desc={desc}
-          id={id}
-          components={components}
-        />
-      )}
+      <SubtreeSingleItem handleDelete={handleDelete} desc={desc} id={id} />
     </DetailStyles>
   </BranchStyles>
 );
 
-export default Branch;
+export default SubtreeBranch;

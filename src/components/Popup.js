@@ -37,7 +37,7 @@ const ModalStyles = styled.div`
 function Popup({ popupIsOpen, closePopup, handleAdd, newId }) {
   const [detail, setDetail] = useState({
     id: '',
-    kind: 'singleItem',
+    kind: 'singleDetail',
     desc: '',
   });
 
@@ -45,7 +45,14 @@ function Popup({ popupIsOpen, closePopup, handleAdd, newId }) {
     <div>
       <Modal
         isOpen={popupIsOpen}
-        onRequestClose={closePopup}
+        onRequestClose={() => {
+          setDetail({
+            id: '',
+            kind: 'singleItem',
+            desc: '',
+          });
+          closePopup();
+        }}
         contentLabel="Add detail"
         className="Modal"
       >

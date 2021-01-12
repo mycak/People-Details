@@ -2,7 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import DeleteButton from './DeleteButton';
 
-const SingleDetailStyles = styled.div`
+const SingleDetailContainer = styled.div`
+  width: 426px;
+  height: 80px;
+`;
+
+export const DetailStyles = styled.div`
   position: relative;
   top: 0;
   width: 100%;
@@ -10,7 +15,7 @@ const SingleDetailStyles = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  ${(props) => (props.flex === 'column' ? 'flex-direction: column;' : '')}
   border-radius: 7px;
   box-shadow: 0 7px 23px 0 rgba(186, 184, 230, 0.31);
 
@@ -31,11 +36,14 @@ const SingleDetailStyles = styled.div`
     font-weight: 700;
   }
 `;
+
 const SingleDetail = ({ desc, handleDelete, id }) => (
-  <SingleDetailStyles>
-    <p>{desc}</p>
-    <DeleteButton handleDelete={handleDelete} id={id} />
-  </SingleDetailStyles>
+  <SingleDetailContainer>
+    <DetailStyles>
+      <p>{desc}</p>
+      <DeleteButton handleDelete={handleDelete} id={id} />
+    </DetailStyles>
+  </SingleDetailContainer>
 );
 
 export default SingleDetail;

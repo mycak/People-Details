@@ -7,11 +7,21 @@ export const initialData = [
   {
     id: 1,
     kind: 'detailTree',
-    desc: 'Ethncity',
+    desc: 'Ethnicity',
+    components: [
+      {
+        id: 0,
+        desc: 'Black',
+      },
+      {
+        id: 1,
+        desc: 'Hispanic',
+      },
+    ],
   },
   {
     id: 2,
-    kind: 'singleItem',
+    kind: 'singleDetail',
     desc: 'Income yearly 45k USD+',
   },
 ];

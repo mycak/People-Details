@@ -6,15 +6,20 @@ import Header from './Header';
 import Popup from './Popup';
 import { initialData } from '../utils/initialData';
 
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 35rem;
+`;
 const ShiftContainer = styled.div`
-  margin-left: -35rem;
+  margin-left: 11.6rem;
 `;
 
 function App() {
   const [state, setState] = useState(initialData);
   const [popupIsOpen, setPopapIsOpen] = useState(false);
   const newId = state.length ? state[state.length - 1].id + 1 : 0;
-  console.log(newId);
 
   const handleDelete = useCallback(
     (i) => {
@@ -39,7 +44,7 @@ function App() {
   );
 
   return (
-    <div className="container">
+    <AppContainer>
       <Header text="People" />
       {state.map((item, i) => (
         <Branch
@@ -49,6 +54,7 @@ function App() {
           key={i}
           kind={item.kind}
           handleDelete={handleDelete}
+          components={item.components}
         />
       ))}
       <ShiftContainer>
@@ -65,7 +71,7 @@ function App() {
         handleAdd={handleAdd}
         newId={newId}
       />
-    </div>
+    </AppContainer>
   );
 }
 
