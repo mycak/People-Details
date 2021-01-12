@@ -13,13 +13,6 @@ const OperatorStyles = styled.div`
   position: relative;
   width: 150px;
   text-align: right;
-
-  p {
-    color: rgb(75, 89, 123, 0.4);
-    font-weight: 500;
-    margin-right: 1em;
-    font-size: 2rem;
-  }
   &::after {
     content: '';
     position: absolute;
@@ -29,6 +22,12 @@ const OperatorStyles = styled.div`
     left: 100%;
     z-index: -2;
     border-left: 1px solid rgb(75, 89, 123, 0.3);
+  }
+  p {
+    color: rgb(75, 89, 123, 0.4);
+    font-weight: 500;
+    font-size: 2rem;
+    margin-right: 1em;
   }
 `;
 const DetailStyles = styled.div`
@@ -72,7 +71,7 @@ const Branch = ({
       )}
       {kind === 'detailTree' && (
         <Subtree
-          handleDelete={handleDelete}
+          handleDeleteTree={handleDelete}
           desc={desc}
           id={id}
           components={components}

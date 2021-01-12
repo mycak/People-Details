@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import AddButton from './AddButton';
 import Branch from './Branch';
@@ -6,6 +6,7 @@ import Header from './Header';
 import Popup from './Popup';
 import { initialData } from '../utils/initialData';
 import { chceckOrder } from '../utils/chceckOrder';
+import { useMenageState, useMenagePopup } from '../utils/hooks';
 
 const AppContainer = styled.div`
   display: flex;
@@ -18,29 +19,9 @@ const ShiftContainer = styled.div`
 `;
 
 function App() {
-  const [state, setState] = useState(initialData);
-  const [popupIsOpen, setPopapIsOpen] = useState(false);
+  const [state, handleDelete, handleAddToState] = useMenageState(initialData);
+  const [popupIsOpen, menageOpenPopup] = useMenagePopup();
   const newId = state.length ? state[state.length - 1].id + 1 : 0;
-
-  const handleDelete = useCallback(
-    (i) => {
-      const newState = state.filter((item) => item.id !== i);
-      setState(newState);
-    },
-    [state]
-  );
-  const closePopup = useCallback(() => {
-    setPopapIsOpen(false);
-  }, []);
-  const openPopup = useCallback(() => {
-    setPopapIsOpen(true);
-  }, []);
-  const handleAdd = useCallback(
-    (newDetail) => {
-      setState([...state, newDetail]);
-    },
-    [state]
-  );
 
   return (
     <AppContainer>
@@ -58,12 +39,18 @@ function App() {
         />
       ))}
       <ShiftContainer>
-        <AddButton outline pipe={!!state.length} onClick={openPopup} />
+        <AddButton
+          outline
+          pipe={!!state.length}
+          onClick={() => menageOpenPopup(true)}
+        />
       </ShiftContainer>
       <Popup
+        label="Add detail !"
+        placeholder="ex origin Poland"
         popupIsOpen={popupIsOpen}
-        closePopup={closePopup}
-        handleAdd={handleAdd}
+        closePopup={() => menageOpenPopup(false)}
+        handleAddToState={handleAddToState}
         newId={newId}
       />
     </AppContainer>

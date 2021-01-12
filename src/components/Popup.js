@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import AddButton from './AddButton';
+import { mainTreeStructure } from '../utils/treeStructures';
 
 Modal.setAppElement('#root');
 
@@ -33,50 +34,63 @@ const ModalStyles = styled.div`
     display: block;
   }
 `;
+const Error = styled.p`
+  ${({ show }) => (show ? '' : 'visibility: hidden')};
+  font-size: 1.4rem;
+  color: red;
+  margin-top: 0.5em;
+`;
 
-function Popup({ popupIsOpen, closePopup, handleAdd, newId }) {
-  const [detail, setDetail] = useState({
-    id: '',
-    kind: 'singleDetail',
-    desc: '',
-  });
+function Popup({
+  popupIsOpen,
+  closePopup,
+  handleAddToState,
+  newId,
+  label,
+  placeholder,
+}) {
+  const [detail, setDetail] = useState(mainTreeStructure);
+  const [isErrorShown, setIsErrorShown] = useState(false);
+
+  const handleAdd = () => {
+    if (detail.desc) {
+      setDetail({
+        id: newId,
+        kind: 'singleDetail',
+        desc: '',
+      });
+      handleAddToState(detail);
+      setIsErrorShown(false);
+      closePopup();
+    } else setIsErrorShown(true);
+  };
 
   return (
     <div>
       <Modal
         isOpen={popupIsOpen}
         onRequestClose={() => {
-          setDetail({
-            id: '',
-            kind: 'singleDetail',
-            desc: '',
-          });
+          setDetail(mainTreeStructure);
           closePopup();
         }}
         contentLabel="Add detail"
         className="Modal"
       >
         <ModalStyles className="container">
-          <h2>Add detail !</h2>
+          <h2>{label}</h2>
           <input
             type="text"
-            placeholder="ex Origin Poland"
+            placeholder={placeholder}
             value={detail.desc}
             onChange={(e) =>
               setDetail({ ...detail, desc: e.target.value, id: newId })
             }
-          />
-          <AddButton
-            onClick={() => {
-              handleAdd(detail);
-              setDetail({
-                id: '',
-                kind: 'singleDetail',
-                desc: '',
-              });
-              closePopup();
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') handleAdd();
             }}
           />
+          <Error show={isErrorShown}>You must type something</Error>
+          <AddButton onClick={() => handleAdd()} />
         </ModalStyles>
       </Modal>
     </div>

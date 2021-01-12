@@ -25,8 +25,8 @@ const OperatorStyles = styled.div`
   p {
     color: rgb(75, 89, 123, 0.4);
     font-weight: 500;
-    margin-right: 1em;
     font-size: 2rem;
+    margin-right: 1rem;
   }
 `;
 const DetailStyles = styled.div`
@@ -50,7 +50,15 @@ const themesList = {
   onlyOne: { height: 'calc(100% + 56px)', top: '-27px' },
 };
 
-const SubtreeBranch = ({ operator, id, desc, handleDelete, order }) => (
+const SubtreeBranch = ({
+  operator,
+  id,
+  desc,
+  handleDelete,
+  order,
+  // kind,
+  // components,
+}) => (
   <BranchStyles>
     <OperatorStyles className="vertical-flex-align" theme={themesList[order]}>
       <p>{operator}</p>
