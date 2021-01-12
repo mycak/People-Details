@@ -36,6 +36,10 @@ export const DetailStyles = styled.div`
     font-size: 2rem;
     margin-left: 2.5em;
     font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
   }
 `;
 

@@ -5,6 +5,7 @@ import { DetailStyles } from './SingleDetail';
 import SubtreeBranch from './SubtreeBranch';
 import AddButton from './AddButton';
 import Popup from './Popup';
+import { chceckOrder } from '../utils/chceckOrder';
 
 const ShiftContainer = styled.div`
   margin-left: 6.8rem;
@@ -42,6 +43,7 @@ const Subtree = ({ desc, handleDelete, id, components }) => {
       <SubtreeHeader desc={desc} handleDelete={handleDelete} id={id} />
       {subtreeState.map((item, i) => (
         <SubtreeBranch
+          order={chceckOrder(subtreeState, item.id)}
           id={item.id}
           desc={item.desc}
           operator="Or"

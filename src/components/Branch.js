@@ -24,9 +24,8 @@ const OperatorStyles = styled.div`
     content: '';
     position: absolute;
     display: inline-block;
-    height: ${(props) =>
-      props.isFirst ? 'calc(100% + 78px)' : 'calc(100% + 19px)'};
-    top: ${(props) => (props.isFirst ? '-59px' : '0')};
+    height: ${({ theme }) => theme.height};
+    top: ${({ theme }) => theme.top};
     left: 100%;
     z-index: -2;
     border-left: 1px solid rgb(75, 89, 123, 0.3);
@@ -47,6 +46,13 @@ const DetailStyles = styled.div`
   }
 `;
 
+const themesList = {
+  first: { height: 'calc(100% + 78px)', top: '-59px' },
+  inBetween: { height: 'calc(100% + 19px)', top: '0' },
+  last: { height: 'calc(100% + 100px)', top: '0' },
+  onlyOne: { height: 'calc(100% + 108px)', top: '-68px' },
+};
+
 const Branch = ({
   operator,
   id,
@@ -54,34 +60,26 @@ const Branch = ({
   handleDelete,
   kind,
   components,
-  isFirst,
-  isLast,
-}) => {
-  console.log(isFirst);
-  return (
-    <BranchStyles>
-      <OperatorStyles
-        className="vertical-flex-align"
-        isFirst={isFirst}
-        isLast={isLast}
-      >
-        <p>{operator}</p>
-      </OperatorStyles>
-      <DetailStyles>
-        {kind === 'singleDetail' && (
-          <SingleDetail handleDelete={handleDelete} desc={desc} id={id} />
-        )}
-        {kind === 'detailTree' && (
-          <Subtree
-            handleDelete={handleDelete}
-            desc={desc}
-            id={id}
-            components={components}
-          />
-        )}
-      </DetailStyles>
-    </BranchStyles>
-  );
-};
+  order,
+}) => (
+  <BranchStyles>
+    <OperatorStyles className="vertical-flex-align" theme={themesList[order]}>
+      <p>{operator}</p>
+    </OperatorStyles>
+    <DetailStyles>
+      {kind === 'singleDetail' && (
+        <SingleDetail handleDelete={handleDelete} desc={desc} id={id} />
+      )}
+      {kind === 'detailTree' && (
+        <Subtree
+          handleDelete={handleDelete}
+          desc={desc}
+          id={id}
+          components={components}
+        />
+      )}
+    </DetailStyles>
+  </BranchStyles>
+);
 
 export default Branch;

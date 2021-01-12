@@ -5,12 +5,13 @@ import Branch from './Branch';
 import Header from './Header';
 import Popup from './Popup';
 import { initialData } from '../utils/initialData';
+import { chceckOrder } from '../utils/chceckOrder';
 
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 35rem;
+  margin-left: 15rem;
 `;
 const ShiftContainer = styled.div`
   margin-left: 11.5rem;
@@ -20,8 +21,6 @@ function App() {
   const [state, setState] = useState(initialData);
   const [popupIsOpen, setPopapIsOpen] = useState(false);
   const newId = state.length ? state[state.length - 1].id + 1 : 0;
-  const firstId = state.length ? state[0].id : null;
-  const lastId = state.length ? state[state.length - 1].id : null;
 
   const handleDelete = useCallback(
     (i) => {
@@ -48,8 +47,7 @@ function App() {
       <Header text="People" />
       {state.map((item, i) => (
         <Branch
-          isFirst={firstId === item.id}
-          isLast={lastId === item.id}
+          order={chceckOrder(state, item.id)}
           id={item.id}
           desc={item.desc}
           operator="And"

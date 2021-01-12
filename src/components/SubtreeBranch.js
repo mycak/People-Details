@@ -16,8 +16,8 @@ const OperatorStyles = styled.div`
     content: '';
     position: absolute;
     display: inline-block;
-    height: calc(100% + 19px);
-    top: 0px;
+    height: ${({ theme }) => theme.height};
+    top: ${({ theme }) => theme.top};
     left: 100%;
     z-index: -2;
     border-left: 1px solid rgb(75, 89, 123, 0.3);
@@ -43,9 +43,16 @@ const DetailStyles = styled.div`
   }
 `;
 
-const SubtreeBranch = ({ operator, id, desc, handleDelete }) => (
+const themesList = {
+  first: { height: 'calc(100% + 27px)', top: '-27px' },
+  inBetween: { height: 'calc(100% + 19px)', top: '-19px' },
+  last: { height: 'calc(100% + 48px)', top: '-19px' },
+  onlyOne: { height: 'calc(100% + 56px)', top: '-27px' },
+};
+
+const SubtreeBranch = ({ operator, id, desc, handleDelete, order }) => (
   <BranchStyles>
-    <OperatorStyles className="vertical-flex-align">
+    <OperatorStyles className="vertical-flex-align" theme={themesList[order]}>
       <p>{operator}</p>
     </OperatorStyles>
     <DetailStyles>
