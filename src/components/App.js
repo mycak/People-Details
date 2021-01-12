@@ -13,13 +13,15 @@ const AppContainer = styled.div`
   margin-left: 35rem;
 `;
 const ShiftContainer = styled.div`
-  margin-left: 11.6rem;
+  margin-left: 11.5rem;
 `;
 
 function App() {
   const [state, setState] = useState(initialData);
   const [popupIsOpen, setPopapIsOpen] = useState(false);
   const newId = state.length ? state[state.length - 1].id + 1 : 0;
+  const firstId = state.length ? state[0].id : null;
+  const lastId = state.length ? state[state.length - 1].id : null;
 
   const handleDelete = useCallback(
     (i) => {
@@ -28,14 +30,12 @@ function App() {
     },
     [state]
   );
-
   const closePopup = useCallback(() => {
     setPopapIsOpen(false);
   }, []);
   const openPopup = useCallback(() => {
     setPopapIsOpen(true);
   }, []);
-
   const handleAdd = useCallback(
     (newDetail) => {
       setState([...state, newDetail]);
@@ -48,6 +48,8 @@ function App() {
       <Header text="People" />
       {state.map((item, i) => (
         <Branch
+          isFirst={firstId === item.id}
+          isLast={lastId === item.id}
           id={item.id}
           desc={item.desc}
           operator="And"
@@ -58,12 +60,7 @@ function App() {
         />
       ))}
       <ShiftContainer>
-        <AddButton
-          outline
-          handleAdd={handleAdd}
-          pipe={!!state.length}
-          onClick={openPopup}
-        />
+        <AddButton outline pipe={!!state.length} onClick={openPopup} />
       </ShiftContainer>
       <Popup
         popupIsOpen={popupIsOpen}

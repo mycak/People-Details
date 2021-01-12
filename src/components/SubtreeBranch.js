@@ -6,11 +6,22 @@ const BranchStyles = styled.div`
   margin-top: 1.9em;
   display: flex;
   justify-content: center;
-  gap: 76px;
+  gap: 26px;
 `;
 const OperatorStyles = styled.div`
-  width: 150px;
+  position: relative;
+  width: 88px;
   text-align: right;
+  &::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    height: calc(100% + 19px);
+    top: 0px;
+    left: 100%;
+    z-index: -2;
+    border-left: 1px solid rgb(75, 89, 123, 0.3);
+  }
   p {
     color: rgb(75, 89, 123, 0.4);
     font-weight: 500;
@@ -21,23 +32,13 @@ const OperatorStyles = styled.div`
 const DetailStyles = styled.div`
   position: relative;
   //Pipes
-  &::before {
-    content: '';
-    position: absolute;
-    display: inline-block;
-    height: 100px;
-    top: -60px;
-    left: -77px;
-    z-index: -2;
-    border-left: 1px solid rgb(75, 89, 123, 0.3);
-  }
   &::after {
     content: '';
     position: absolute;
     display: inline-block;
-    width: 76px;
-    top: 39px;
-    left: -76px;
+    width: 26px;
+    top: 50%;
+    left: -26px;
     border-top: 1px solid rgb(75, 89, 123, 0.3);
   }
 `;

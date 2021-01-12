@@ -10,58 +10,78 @@ const BranchStyles = styled.div`
   gap: 76px;
 `;
 const OperatorStyles = styled.div`
+  position: relative;
   width: 150px;
   text-align: right;
+
   p {
     color: rgb(75, 89, 123, 0.4);
     font-weight: 500;
     margin-right: 1em;
     font-size: 2rem;
   }
-`;
-const DetailStyles = styled.div`
-  position: relative;
-  //Pipes
-  &::before {
+  &::after {
     content: '';
     position: absolute;
     display: inline-block;
-    height: 100px;
-    top: -60px;
-    left: -77px;
+    height: ${(props) =>
+      props.isFirst ? 'calc(100% + 78px)' : 'calc(100% + 19px)'};
+    top: ${(props) => (props.isFirst ? '-59px' : '0')};
+    left: 100%;
     z-index: -2;
     border-left: 1px solid rgb(75, 89, 123, 0.3);
   }
+`;
+const DetailStyles = styled.div`
+  position: relative;
+  width: 426px;
+  //Pipes
   &::after {
     content: '';
     position: absolute;
     display: inline-block;
     width: 76px;
-    top: 39px;
+    top: 50%;
     left: -76px;
     border-top: 1px solid rgb(75, 89, 123, 0.3);
   }
 `;
 
-const Branch = ({ operator, id, desc, handleDelete, kind, components }) => (
-  <BranchStyles>
-    <OperatorStyles className="vertical-flex-align">
-      <p>{operator}</p>
-    </OperatorStyles>
-    <DetailStyles>
-      {kind === 'singleDetail' && (
-        <SingleDetail handleDelete={handleDelete} desc={desc} id={id} />
-      )}
-      {kind === 'detailTree' && (
-        <Subtree
-          handleDelete={handleDelete}
-          desc={desc}
-          id={id}
-          components={components}
-        />
-      )}
-    </DetailStyles>
-  </BranchStyles>
-);
+const Branch = ({
+  operator,
+  id,
+  desc,
+  handleDelete,
+  kind,
+  components,
+  isFirst,
+  isLast,
+}) => {
+  console.log(isFirst);
+  return (
+    <BranchStyles>
+      <OperatorStyles
+        className="vertical-flex-align"
+        isFirst={isFirst}
+        isLast={isLast}
+      >
+        <p>{operator}</p>
+      </OperatorStyles>
+      <DetailStyles>
+        {kind === 'singleDetail' && (
+          <SingleDetail handleDelete={handleDelete} desc={desc} id={id} />
+        )}
+        {kind === 'detailTree' && (
+          <Subtree
+            handleDelete={handleDelete}
+            desc={desc}
+            id={id}
+            components={components}
+          />
+        )}
+      </DetailStyles>
+    </BranchStyles>
+  );
+};
 
 export default Branch;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import DeleteButton from './DeleteButton';
 
 const SingleDetailContainer = styled.div`
-  width: 426px;
   height: 80px;
 `;
 
@@ -15,7 +14,10 @@ export const DetailStyles = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${(props) => (props.flex === 'column' ? 'flex-direction: column;' : '')}
+  ${(props) =>
+    props.flex === 'column'
+      ? 'flex-direction: column; align-items: flex-start;'
+      : ''}
   border-radius: 7px;
   box-shadow: 0 7px 23px 0 rgba(186, 184, 230, 0.31);
 

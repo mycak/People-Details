@@ -3,19 +3,19 @@ import styled from 'styled-components';
 
 const Button = styled.div`
   cursor: pointer;
-  margin-top: 4rem;
+  margin-top: ${(props) => (props.small ? '2.9rem' : '4rem')};
   margin-bottom: 3rem;
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: ${(props) => (props.small ? '40px' : '70px')};
+  height: ${(props) => (props.small ? '40px' : '70px')};
   border-radius: 50%;
   background: linear-gradient(0deg, #27e7e7 0%, #f4ff51 100%);
   box-shadow: 0 12px 12px 0 rgba(61, 234, 214, 0.3);
   //sign
   text-align: center;
   color: #fff;
-  font-size: 46px;
-  font-weight: 600;
+  font-size: ${(props) => (props.small ? '30px' : '46px')};
+  font-weight: 500;
   letter-spacing: 0.99px;
   line-height: 80px;
   text-shadow: 0 2px 4px 0 #12c8bf;
@@ -35,28 +35,16 @@ const Button = styled.div`
     z-index: -2;
     ${(props) => (props.outline ? '' : 'display: none;')}
   }
-
-  //pipe
-  &::before {
-    content: '';
-    position: absolute;
-    display: inline-block;
-    height: 80px;
-    top: -80px;
-    left: 33px;
-    z-index: -2;
-    border-left: 1px solid rgb(75, 89, 123, 0.3);
-    ${(props) => (props.pipe ? '' : 'display: none;')}
-  }
 `;
 
-const AddButton = ({ outline, pipe, onClick }) => (
+const AddButton = ({ outline, pipe, onClick, small }) => (
   <Button
     role="button"
     outline={outline}
     pipe={pipe}
     className="vertical-flex-align"
     onClick={onClick}
+    small={small}
   >
     +
   </Button>

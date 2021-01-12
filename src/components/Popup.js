@@ -48,7 +48,7 @@ function Popup({ popupIsOpen, closePopup, handleAdd, newId }) {
         onRequestClose={() => {
           setDetail({
             id: '',
-            kind: 'singleItem',
+            kind: 'singleDetail',
             desc: '',
           });
           closePopup();
@@ -71,7 +71,7 @@ function Popup({ popupIsOpen, closePopup, handleAdd, newId }) {
               handleAdd(detail);
               setDetail({
                 id: '',
-                kind: 'singleItem',
+                kind: 'singleDetail',
                 desc: '',
               });
               closePopup();

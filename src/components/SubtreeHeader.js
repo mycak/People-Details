@@ -3,27 +3,31 @@ import styled from 'styled-components';
 import DeleteButton from './DeleteButton';
 
 const SubtreeHeaderStyles = styled.div`
-  margin: 38px 0 38px 38px;
+  margin: 38px 0 8px 38px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 35px;
 `;
 
-const SeubtreeItemContainer = styled.div`
-  width: 293px;
+export const SubtreeItemContainer = styled.div`
+  border: solid 2px red;
+  width: 290px;
   height: 51px;
   border: solid 1px rgb(75, 89, 123, 0.3);
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   p {
-    font-size: 2rem;
-    margin-left: 2rem;
+    font-size: 20px;
+    margin-left: 20px;
   }
 `;
 const SubtreeHeader = ({ desc, id, handleDelete }) => (
   <SubtreeHeaderStyles>
-    <SeubtreeItemContainer className="vertical-flex-align">
+    <SubtreeItemContainer>
       <p>{desc}</p>
-    </SeubtreeItemContainer>
+    </SubtreeItemContainer>
     <DeleteButton handleDelete={handleDelete} id={id} />
   </SubtreeHeaderStyles>
 );
