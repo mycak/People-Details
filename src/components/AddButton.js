@@ -10,7 +10,7 @@ const AddButton = ({ outline, pipe, onClick, small }) => (
     onClick={onClick}
     small={small}
   >
-    +
+    <p>+</p>
   </AddButtonStyles>
 );
 

@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
 export const useMenageState = (data) => {
-  const [state, setState] = useState(data);
+  const [state, setState] = useState(data || []);
   const handleDelete = useCallback(
     (i) => {
       const newState = state.filter((item) => item.id !== i);

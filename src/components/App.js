@@ -15,7 +15,16 @@ const AppContainer = styled.div`
   padding-bottom: 4em;
 `;
 const ShiftContainer = styled.div`
-  margin-left: 11.5rem;
+  margin-left: 10.2em;
+  @media (max-width: 800px) {
+    margin-left: 9.3em;
+  }
+  @media (max-width: 600px) {
+    margin-left: 7em;
+  }
+  @media (max-width: 450px) {
+    margin-left: 5.7em;
+  }
 `;
 
 function App() {
@@ -52,6 +61,7 @@ function App() {
         closePopup={() => menageOpenPopup(false)}
         handleAddToState={handleAddToState}
         newId={newId}
+        listItem
       />
     </AppContainer>
   );

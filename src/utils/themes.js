@@ -1,28 +1,28 @@
 export const themesListPipes = {
-  first: { height: 'calc(100% + 78px)', top: '-59px' },
-  inBetween: { height: 'calc(100% + 19px)', top: '0' },
-  last: { height: 'calc(100% + 100px)', top: '0' },
-  onlyOne: { height: 'calc(100% + 108px)', top: '-68px' },
+  first: { height: 'calc(100% + 7.8em)', top: '-5.9em' },
+  inBetween: { height: 'calc(100% + 1.9em)', top: '0' },
+  last: { height: 'calc(100% + 10em)', top: '0' },
+  onlyOne: { height: 'calc(100% + 10.8em)', top: '-6.8em' },
 };
 export const themesListPipesSubtree = {
-  first: { height: 'calc(100% + 27px)', top: '-27px' },
-  inBetween: { height: 'calc(100% + 19px)', top: '-19px' },
-  last: { height: 'calc(100% + 48px)', top: '-19px' },
-  onlyOne: { height: 'calc(100% + 56px)', top: '-27px' },
+  first: { height: 'calc(100% + 2.7em)', top: '-2.7em' },
+  inBetween: { height: 'calc(100% + 1.9em)', top: '-1.9em' },
+  last: { height: 'calc(100% + 4.8em)', top: '-1.9em' },
+  onlyOne: { height: 'calc(100% + 5.6em)', top: '-2.7em' },
 };
 
 export const themes = {
   mainTree: {
-    gap: '76px',
-    width: '150px',
-    widthDetail: '426px',
-    widthPipe: '76px',
-    left: '-76px',
+    gap: '7.6em',
+    width: '15em',
+    widthDetail: '42.6em',
+    widthPipe: '7.6em',
+    left: '-7.6em',
   },
   subTree: {
-    gap: '26px',
-    width: '88px',
-    widthPipe: '26px',
-    left: '-26px',
+    gap: '2.6em',
+    width: '8.8em',
+    widthPipe: '2.6em',
+    left: '-2.6em',
   },
 };

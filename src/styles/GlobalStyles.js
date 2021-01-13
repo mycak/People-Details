@@ -3,6 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   :root {
     --base: #4B597B;
+    --secondary: rgb(75, 89, 123, 0.3);
+    --violetGradient: linear-gradient(#ca75f1, #7176f7);
+    --greenGradient: linear-gradient(0deg, #27e7e7 0%, #f4ff51 100%);
+    --shadow: 0 12px 12px 0 rgba(61, 234, 214, 0.3);
   }
   *,
   *::before,
@@ -68,8 +72,8 @@ const GlobalStyles = createGlobalStyle`
     left: 0;
     border-radius: 7px 0 0 7px;
     background: linear-gradient(0deg, #7176f7 0%, #ca75f1 100%);
-  }
-  }
+    }
+}
 `;
 
 export default GlobalStyles;

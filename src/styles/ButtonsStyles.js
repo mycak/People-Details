@@ -1,23 +1,27 @@
 import styled from 'styled-components';
 
-export const AddButtonStyles = styled.div`
+export const AddButtonStyles = styled.button`
   cursor: pointer;
-  margin-top: ${(props) => (props.small ? '2.9rem' : '4rem')};
-  margin-bottom: 3rem;
+  margin-top: ${(props) => (props.small ? '2.9em' : '4em')};
+  margin-bottom: 3em;
   position: relative;
-  width: ${(props) => (props.small ? '40px' : '70px')};
-  height: ${(props) => (props.small ? '40px' : '70px')};
+  width: ${(props) => (props.small ? '4em' : '7em')};
+  height: ${(props) => (props.small ? '4em' : '7em')};
   border-radius: 50%;
-  background: linear-gradient(0deg, #27e7e7 0%, #f4ff51 100%);
-  box-shadow: 0 12px 12px 0 rgba(61, 234, 214, 0.3);
-  //sign
+  background: var(--greenGradient);
+  box-shadow: var(--shadow);
   text-align: center;
-  color: #fff;
-  font-size: ${(props) => (props.small ? '30px' : '46px')};
-  font-weight: 500;
-  letter-spacing: 0.99px;
-  line-height: 80px;
-  text-shadow: 0 2px 4px 0 #12c8bf;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease;
+
+  //sign
+  p {
+    margin: 0;
+    color: #fff;
+    font-size: ${(props) => (props.small ? '3em' : '4.6em')};
+    font-weight: 500;
+  }
 
   //outline
   &::after {
@@ -26,28 +30,62 @@ export const AddButtonStyles = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 96px;
-    width: 96px;
+    height: 9.6em;
+    width: 9.6em;
     background-color: #ffffff;
-    box-shadow: 0 12px 12px 0 rgba(61, 234, 214, 0.3);
+    box-shadow: var(--shadow);
     border-radius: 50%;
     z-index: -2;
     ${(props) => (props.outline ? '' : 'display: none;')}
+  }
+  &:hover {
+    background: #a5f68b;
+  }
+  @media (max-width: 800px) {
+    font-size: 8px;
+  }
+  @media (max-width: 600px) {
+    font-size: 6px;
+  }
+  @media (max-width: 450px) {
+    font-size: 5px;
   }
 `;
 
 export const Oval = styled.div`
   cursor: pointer;
   align-items: center;
-  height: 30px;
-  width: 30px;
+  height: 3em;
+  width: 3em;
   border-radius: 50%;
   margin-right: 1em;
   background: linear-gradient(180deg, #f978a2 0%, #f1435b 100%);
   box-shadow: 0 6px 12px 0 #ffc0c9;
+  @media (max-width: 800px) {
+    font-size: 8px;
+  }
+  @media (max-width: 600px) {
+    font-size: 6px;
+  }
+  @media (max-width: 450px) {
+    font-size: 5px;
+  }
+  &:hover {
+    background: #f1435b;
+  }
 `;
+
 export const Minus = styled.div`
-  height: 4px;
-  width: 12px;
+  height: 0.4em;
+  width: 1.2em;
   background-color: #ffffff;
+  @media (max-width: 800px) {
+    font-size: 8px;
+  }
+  @media (max-width: 600px) {
+    font-size: 6px;
+  }
+  @media (max-width: 450px) {
+    font-size: 5px;
+  }
 `;
