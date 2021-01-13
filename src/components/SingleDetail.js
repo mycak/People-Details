@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import DeleteButton from './DeleteButton';
 
 const SingleDetailContainer = styled.div`
-  height: 80px;
+  min-height: 80px;
 `;
 
 export const DetailStyles = styled.div`
   position: relative;
   top: 0;
   width: 100%;
-  height: 100%;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,10 +36,9 @@ export const DetailStyles = styled.div`
     font-size: 2rem;
     margin-left: 2.5em;
     font-weight: 700;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
+    max-width: 310px;
   }
 `;
 

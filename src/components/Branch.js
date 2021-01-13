@@ -1,56 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 import SingleDetail from './SingleDetail';
 import Subtree from './Subtree';
-
-const BranchStyles = styled.div`
-  margin-top: 1.9em;
-  display: flex;
-  justify-content: center;
-  gap: 76px;
-`;
-const OperatorStyles = styled.div`
-  position: relative;
-  width: 150px;
-  text-align: right;
-  &::after {
-    content: '';
-    position: absolute;
-    display: inline-block;
-    height: ${({ theme }) => theme.height};
-    top: ${({ theme }) => theme.top};
-    left: 100%;
-    z-index: -2;
-    border-left: 1px solid rgb(75, 89, 123, 0.3);
-  }
-  p {
-    color: rgb(75, 89, 123, 0.4);
-    font-weight: 500;
-    font-size: 2rem;
-    margin-right: 1em;
-  }
-`;
-const DetailStyles = styled.div`
-  position: relative;
-  width: 426px;
-  //Pipes
-  &::after {
-    content: '';
-    position: absolute;
-    display: inline-block;
-    width: 76px;
-    top: 50%;
-    left: -76px;
-    border-top: 1px solid rgb(75, 89, 123, 0.3);
-  }
-`;
-
-const themesList = {
-  first: { height: 'calc(100% + 78px)', top: '-59px' },
-  inBetween: { height: 'calc(100% + 19px)', top: '0' },
-  last: { height: 'calc(100% + 100px)', top: '0' },
-  onlyOne: { height: 'calc(100% + 108px)', top: '-68px' },
-};
+import SubtreeSingleItem from './SubtreeSingleItem';
+import { themes, themesListPipes } from '../utils/themes';
+import {
+  BranchStyles,
+  OperatorStyles,
+  DetailStyles,
+} from '../styles/BranchStyles';
 
 const Branch = ({
   operator,
@@ -61,11 +18,15 @@ const Branch = ({
   components,
   order,
 }) => (
-  <BranchStyles>
-    <OperatorStyles className="vertical-flex-align" theme={themesList[order]}>
+  <BranchStyles theme={themes.mainTree}>
+    <OperatorStyles
+      className="vertical-flex-align"
+      themePipes={themesListPipes[order]}
+      theme={themes.mainTree}
+    >
       <p>{operator}</p>
     </OperatorStyles>
-    <DetailStyles>
+    <DetailStyles theme={themes.mainTree}>
       {kind === 'singleDetail' && (
         <SingleDetail handleDelete={handleDelete} desc={desc} id={id} />
       )}
@@ -76,6 +37,9 @@ const Branch = ({
           id={id}
           components={components}
         />
+      )}
+      {kind === 'detailSubtree' && (
+        <SubtreeSingleItem handleDelete={handleDelete} desc={desc} id={id} />
       )}
     </DetailStyles>
   </BranchStyles>

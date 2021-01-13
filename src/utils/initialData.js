@@ -12,10 +12,12 @@ export const initialData = [
       {
         id: 0,
         desc: 'Black',
+        kind: 'detailSubtree',
       },
       {
         id: 1,
         desc: 'Hispanic',
+        kind: 'detailSubtree',
       },
     ],
   },
