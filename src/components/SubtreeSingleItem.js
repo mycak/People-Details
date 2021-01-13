@@ -1,6 +1,6 @@
 import React from 'react';
 import DeleteButton from './DeleteButton';
-import { SubtreeItemContainer } from './SubtreeHeader';
+import { SubtreeItemContainer } from '../styles/HeadersStyles';
 
 const SubtreeSingleItem = ({ id, desc, handleDelete }) => (
   <SubtreeItemContainer>

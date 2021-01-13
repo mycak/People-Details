@@ -5,7 +5,7 @@ import {
   BranchStyles,
   OperatorStyles,
   DetailStyles,
-} from '../styles/BranchStyles';
+} from '../styles/BranchesStyles';
 
 const SubtreeBranch = ({ operator, id, desc, handleDelete, order }) => (
   <BranchStyles theme={themes.subTree}>

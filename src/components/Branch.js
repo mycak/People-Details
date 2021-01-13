@@ -7,7 +7,7 @@ import {
   BranchStyles,
   OperatorStyles,
   DetailStyles,
-} from '../styles/BranchStyles';
+} from '../styles/BranchesStyles';
 
 const Branch = ({
   operator,

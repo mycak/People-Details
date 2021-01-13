@@ -19,6 +19,9 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   button {
     background-color: transparent;

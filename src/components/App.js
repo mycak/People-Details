@@ -12,7 +12,7 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 15rem;
+  padding-bottom: 4em;
 `;
 const ShiftContainer = styled.div`
   margin-left: 11.5rem;
