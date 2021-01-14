@@ -5,8 +5,13 @@ import Branch from './mainTreeComponents/Branch';
 import Header from './mainTreeComponents/Header';
 import Popup from './Popup';
 import { initialData } from '../utils/initialData';
-import { chceckOrder } from '../utils/chceckOrder';
 import { useMenageState, useMenagePopup } from '../utils/hooks';
+import {
+  HelperContainer,
+  MarginContainer,
+  BranchesContainer,
+} from '../styles/BranchesStyles';
+import { themes } from '../utils/themes';
 
 const AppContainer = styled.div`
   display: flex;
@@ -23,23 +28,25 @@ function App() {
   return (
     <AppContainer>
       <Header text="People" />
-      {state.map((item, i) => (
-        <Branch
-          order={chceckOrder(state, item.id)}
-          id={item.id}
-          desc={item.desc}
-          operator="And"
-          key={i}
-          kind={item.kind}
-          handleDelete={handleDelete}
-          components={item.components}
-        />
-      ))}
-      <AddButton
-        outline
-        pipe={!!state.length}
-        onClick={() => menageOpenPopup(true)}
-      />
+
+      <HelperContainer>
+        <MarginContainer theme={themes.mainTree} />
+        <BranchesContainer theme={themes.mainTree}>
+          {state.map((item, i) => (
+            <Branch
+              id={item.id}
+              desc={item.desc}
+              operator="and"
+              key={i}
+              kind={item.kind}
+              handleDelete={handleDelete}
+              components={item.components}
+            />
+          ))}
+        </BranchesContainer>
+      </HelperContainer>
+
+      <AddButton outline onClick={() => menageOpenPopup(true)} />
       <Popup
         label="Add detail !"
         placeholder="ex origin Poland"

@@ -9,7 +9,6 @@ export const HeaderContainerStyles = styled.div`
   padding: 1em;
   box-shadow: 1px 1px 19px 0px rgba(125, 118, 246, 0.7);
   border-radius: 7px;
-  margin-bottom: 4em;
   p {
     font-size: 2.5em;
     color: #fff;
@@ -30,12 +29,11 @@ export const HeaderContainerStyles = styled.div`
 // SUBTREE
 
 export const SubtreeHeaderStyles = styled.div`
-  margin: 1.8em 0 2.6em 3.8em;
+  margin: 1.8em 0 0 3.8em;
   display: flex;
   align-items: center;
   gap: 3.5em;
   @media (max-width: 800px) {
-    margin: 2em 0 2.5em 3.8em;
     font-size: 8px;
     gap: 2.1em;
   }
@@ -52,7 +50,7 @@ export const SubtreeItemContainer = styled.div`
   min-height: 5.1em;
   border: solid 1px var(--secondary);
   border-radius: 4px;
-  padding: 0.8em 0;
+  padding: 0.4em 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,6 +65,6 @@ export const SubtreeItemContainer = styled.div`
     width: 30em;
   }
   @media (max-width: 450px) {
-    max-width: 28em;
+    max-width: 36em;
   }
 `;

@@ -1,24 +1,16 @@
 import React from 'react';
 import SubtreeSingleItem from './SubtreeSingleItem';
-import { themes, themesListPipesSubtree } from '../../utils/themes';
+import { themes } from '../../utils/themes';
 import {
   BranchStyles,
-  OperatorStyles,
-  DetailStyles,
+  ContainerWithoutBorder,
 } from '../../styles/BranchesStyles';
 
-const SubtreeBranch = ({ operator, id, desc, handleDelete, order }) => (
-  <BranchStyles theme={themes.subTree}>
-    <OperatorStyles
-      className="vertical-flex-align"
-      themePipes={themesListPipesSubtree[order]}
-      theme={themes.subTree}
-    >
-      <p>{operator}</p>
-    </OperatorStyles>
-    <DetailStyles theme={themes.subTree}>
+const SubtreeBranch = ({ operator, id, desc, handleDelete }) => (
+  <BranchStyles theme={themes.subTree} className={operator}>
+    <ContainerWithoutBorder theme={themes.subTree}>
       <SubtreeSingleItem handleDelete={handleDelete} desc={desc} id={id} />
-    </DetailStyles>
+    </ContainerWithoutBorder>
   </BranchStyles>
 );
 

@@ -3,8 +3,13 @@ import SubtreeHeader from './SubtreeHeader';
 import SubtreeBranch from './SubtreeBranch';
 import AddButton from '../buttons/AddButton';
 import Popup from '../Popup';
-import { chceckOrder } from '../../utils/chceckOrder';
 import { useMenageState, useMenagePopup } from '../../utils/hooks';
+import {
+  HelperContainer,
+  MarginContainer,
+  BranchesContainer,
+} from '../../styles/BranchesStyles';
+import { themes } from '../../utils/themes';
 
 const Subtree = ({ desc, handleDeleteTree, id, components }) => {
   const [state, handleDelete, handleAddToState] = useMenageState(components);
@@ -14,24 +19,23 @@ const Subtree = ({ desc, handleDeleteTree, id, components }) => {
   return (
     <div>
       <SubtreeHeader desc={desc} handleDelete={handleDeleteTree} id={id} />
-      {state.length &&
-        state.map((item, i) => (
-          <SubtreeBranch
-            order={chceckOrder(state, item.id)}
-            id={item.id}
-            desc={item.desc}
-            operator="Or"
-            key={i}
-            kind={item.kind}
-            handleDelete={handleDelete}
-          />
-        ))}
-      <AddButton
-        className="margin--zero"
-        small
-        onClick={() => menageOpenPopup(true)}
-        pipe={!!state.length}
-      />
+      <HelperContainer>
+        <MarginContainer theme={themes.subTree} />
+        <BranchesContainer theme={themes.subTree}>
+          {!!state.length &&
+            state.map((item, i) => (
+              <SubtreeBranch
+                id={item.id}
+                desc={item.desc}
+                operator="or"
+                key={i}
+                kind={item.kind}
+                handleDelete={handleDelete}
+              />
+            ))}
+        </BranchesContainer>
+      </HelperContainer>
+      <AddButton small onClick={() => menageOpenPopup(true)} />
       <Popup
         label="Add list item !"
         placeholder="Type here !"

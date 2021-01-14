@@ -30,22 +30,16 @@ const ContainerWithBorderStyles = styled.div`
     content: '';
     position: absolute;
     display: inline-block;
-    width: ${({ theme }) => theme.widthPipe};
+    width: 7.6em;
     top: 50%;
-    left: ${({ theme }) => theme.left};
+    left: -7.6em;
     border-top: 1px solid var(--secondary);
     @media (max-width: 800px) {
-      width: ${({ theme }) => (theme.gap === '7.6em' ? '3.8em' : '1.3em')};
-      left: ${({ theme }) => (theme.gap === '7.6em' ? '-3.8em' : '-1.3em')};
+      width: 3.8em;
+      left: -3.8em;
     }
   }
-  p {
-    font-size: 2em;
-    font-weight: 700;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 15em;
-  }
+
   @media (max-width: 800px) {
     font-size: 8px;
   }

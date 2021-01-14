@@ -1,28 +1,18 @@
-export const themesListPipes = {
-  first: { height: 'calc(100% + 7.8em)', top: '-5.9em' },
-  inBetween: { height: 'calc(100% + 1.9em)', top: '0' },
-  last: { height: 'calc(100% + 10em)', top: '0' },
-  onlyOne: { height: 'calc(100% + 10.8em)', top: '-6.8em' },
-};
-export const themesListPipesSubtree = {
-  first: { height: 'calc(100% + 2.7em)', top: '-2.7em' },
-  inBetween: { height: 'calc(100% + 1.9em)', top: '-1.9em' },
-  last: { height: 'calc(100% + 4.8em)', top: '-1.9em' },
-  onlyOne: { height: 'calc(100% + 5.6em)', top: '-2.7em' },
-};
-
 export const themes = {
   mainTree: {
+    operatorMargin: '-6.8em',
+    paddingTop: '5.4em',
+    paddingBottom: '5.8em',
     gap: '7.6em',
+    smallGap: '3.8em',
     width: '15em',
-    widthDetail: '42.6em',
-    widthPipe: '7.6em',
-    left: '-7.6em',
   },
   subTree: {
+    operatorMargin: '-3.8em',
+    paddingTop: '1.64em',
+    paddingBottom: '3.8em',
     gap: '2.6em',
+    smallGap: '1.3em',
     width: '8.8em',
-    widthPipe: '2.6em',
-    left: '-2.6em',
   },
 };
