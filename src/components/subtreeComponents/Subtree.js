@@ -1,10 +1,10 @@
 import React from 'react';
 import SubtreeHeader from './SubtreeHeader';
 import SubtreeBranch from './SubtreeBranch';
-import AddButton from './AddButton';
-import Popup from './Popup';
-import { chceckOrder } from '../utils/chceckOrder';
-import { useMenageState, useMenagePopup } from '../utils/hooks';
+import AddButton from '../buttons/AddButton';
+import Popup from '../Popup';
+import { chceckOrder } from '../../utils/chceckOrder';
+import { useMenageState, useMenagePopup } from '../../utils/hooks';
 
 const Subtree = ({ desc, handleDeleteTree, id, components }) => {
   const [state, handleDelete, handleAddToState] = useMenageState(components);

@@ -2,8 +2,8 @@ import React from 'react';
 import {
   SubtreeHeaderStyles,
   SubtreeItemContainer,
-} from '../styles/HeadersStyles';
-import DeleteButton from './DeleteButton';
+} from '../../styles/HeadersStyles';
+import DeleteButton from '../buttons/DeleteButton';
 
 const SubtreeHeader = ({ desc, id, handleDelete }) => (
   <SubtreeHeaderStyles>

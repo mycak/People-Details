@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderContainerStyles } from '../styles/HeadersStyles';
+import { HeaderContainerStyles } from '../../styles/HeadersStyles';
 
 const Header = ({ text }) => (
   <HeaderContainerStyles className="vertical-flex-align">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Oval, Minus } from '../styles/ButtonsStyles';
+import { Oval, Minus } from '../../styles/ButtonsStyles';
 
 const DeleteButton = ({ handleDelete, id }) => (
   <Oval

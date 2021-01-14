@@ -1,7 +1,7 @@
 import React from 'react';
-import DeleteButton from './DeleteButton';
+import DeleteButton from '../buttons/DeleteButton';
 
-import { SingleDetailContainer } from '../styles/SingleItemsStyles';
+import { SingleDetailContainer } from '../../styles/SingleItemsStyles';
 
 const SingleDetail = ({ desc, handleDelete, id }) => (
   <SingleDetailContainer>

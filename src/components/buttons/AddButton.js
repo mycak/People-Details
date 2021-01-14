@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddButtonStyles } from '../styles/ButtonsStyles';
+import { AddButtonStyles } from '../../styles/ButtonsStyles';
 
 const AddButton = ({ outline, pipe, onClick, small }) => (
   <AddButtonStyles

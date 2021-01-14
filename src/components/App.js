@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import AddButton from './AddButton';
-import Branch from './Branch';
-import Header from './Header';
+import AddButton from './buttons/AddButton';
+import Branch from './mainTreeComponents/Branch';
+import Header from './mainTreeComponents/Header';
 import Popup from './Popup';
 import { initialData } from '../utils/initialData';
 import { chceckOrder } from '../utils/chceckOrder';
@@ -13,7 +13,6 @@ const AppContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding-bottom: 4em;
-  border: solid red;
 `;
 
 function App() {

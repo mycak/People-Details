@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
-import AddButton from './AddButton';
+import AddButton from './buttons/AddButton';
 import { mainTreeStructure } from '../utils/treeStructures';
 import { ModalStyles, Error } from '../styles/PopupStyles';
 
