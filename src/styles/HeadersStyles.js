@@ -65,6 +65,6 @@ export const SubtreeItemContainer = styled.div`
     width: 30em;
   }
   @media (max-width: 450px) {
-    max-width: 36em;
+    max-width: 28em;
   }
 `;

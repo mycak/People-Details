@@ -59,7 +59,7 @@ export const Oval = styled.div`
   height: 3em;
   width: 3em;
   border-radius: 50%;
-  margin-right: 1em;
+  margin-right: 1.5em;
   background: linear-gradient(180deg, #f978a2 0%, #f1435b 100%);
   box-shadow: 0 6px 12px 0 #ffc0c9;
   @media (max-width: 800px) {

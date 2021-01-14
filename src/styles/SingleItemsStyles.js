@@ -23,6 +23,5 @@ export const SingleDetailContainer = styled.div`
   @media (max-width: 450px) {
     min-width: 40em;
     font-size: 5px;
-    border: solid 1px red;
   }
 `;
