@@ -12,7 +12,10 @@ export const SingleDetailContainer = styled.div`
     font-weight: 700;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 15em;
+    max-width: 17em;
+    @media (max-width: 450px) {
+      max-width: 15em;
+    }
   }
   @media (max-width: 800px) {
     font-size: 8px;

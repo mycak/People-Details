@@ -59,7 +59,10 @@ export const SubtreeItemContainer = styled.div`
     margin-left: 1em;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 10em;
+    max-width: 11em;
+    @media (max-width: 450px) {
+      max-width: 10em;
+    }
   }
   @media (max-width: 800px) {
     width: 30em;
