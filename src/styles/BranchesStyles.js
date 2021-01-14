@@ -20,7 +20,7 @@ export const BranchStyles = styled.div`
 `;
 export const OperatorStyles = styled.div`
   position: relative;
-  width: ${({ theme }) => theme.width};
+  min-width: ${({ theme }) => theme.width};
   text-align: right;
   &::after {
     content: '';

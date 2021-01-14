@@ -34,6 +34,7 @@ export const ModalStyles = styled.div`
   button {
     display: flex;
     margin: 1.5em 0;
+    left: 0;
   }
   @media (max-width: 800px) {
     font-size: 8px;

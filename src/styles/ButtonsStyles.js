@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const AddButtonStyles = styled.button`
   cursor: pointer;
-  margin-top: ${(props) => (props.small ? '2.9em' : '4em')};
-  margin-bottom: 3em;
+  margin-top: ${(props) => (props.small ? '2.2em' : '4em')};
+  margin-bottom: 2em;
   position: relative;
+  left: ${(props) => (props.small ? '4.5em' : '7.5em')};
   width: ${(props) => (props.small ? '4em' : '7em')};
   height: ${(props) => (props.small ? '4em' : '7em')};
   border-radius: 50%;
@@ -43,6 +44,7 @@ export const AddButtonStyles = styled.button`
   }
   @media (max-width: 800px) {
     font-size: 8px;
+    left: ${(props) => (props.small ? '6.5em' : '11.5em')};
   }
   @media (max-width: 600px) {
     font-size: 6px;

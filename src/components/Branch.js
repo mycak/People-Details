@@ -3,11 +3,8 @@ import SingleDetail from './SingleDetail';
 import Subtree from './Subtree';
 import SubtreeSingleItem from './SubtreeSingleItem';
 import { themes, themesListPipes } from '../utils/themes';
-import {
-  BranchStyles,
-  OperatorStyles,
-  DetailStyles,
-} from '../styles/BranchesStyles';
+import { BranchStyles, OperatorStyles } from '../styles/BranchesStyles';
+import ContainerWithBorder from './ContainerWithBorder';
 
 const Branch = ({
   operator,
@@ -26,7 +23,8 @@ const Branch = ({
     >
       <p>{operator}</p>
     </OperatorStyles>
-    <DetailStyles theme={themes.mainTree}>
+
+    <ContainerWithBorder theme={themes.mainTree}>
       {kind === 'singleDetail' && (
         <SingleDetail handleDelete={handleDelete} desc={desc} id={id} />
       )}
@@ -41,7 +39,7 @@ const Branch = ({
       {kind === 'detailSubtree' && (
         <SubtreeSingleItem handleDelete={handleDelete} desc={desc} id={id} />
       )}
-    </DetailStyles>
+    </ContainerWithBorder>
   </BranchStyles>
 );
 

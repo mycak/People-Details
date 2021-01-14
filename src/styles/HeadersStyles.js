@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const HeaderContainerStyles = styled.div`
   margin-top: 4em;
-  margin-right: 35em;
   background: var(--violetGradient);
   text-align: center;
   width: 30em;
@@ -31,12 +30,12 @@ export const HeaderContainerStyles = styled.div`
 // SUBTREE
 
 export const SubtreeHeaderStyles = styled.div`
-  margin: 3.8em 0 0.8em 3.8em;
+  margin: 1.8em 0 2.6em 3.8em;
   display: flex;
   align-items: center;
   gap: 3.5em;
   @media (max-width: 800px) {
-    margin: 2em 0 0.8em 3.8em;
+    margin: 2em 0 2.5em 3.8em;
     font-size: 8px;
     gap: 2.1em;
   }

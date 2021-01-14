@@ -13,18 +13,7 @@ const AppContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding-bottom: 4em;
-`;
-const ShiftContainer = styled.div`
-  margin-left: 10.2em;
-  @media (max-width: 800px) {
-    margin-left: 9.3em;
-  }
-  @media (max-width: 600px) {
-    margin-left: 7em;
-  }
-  @media (max-width: 450px) {
-    margin-left: 5.7em;
-  }
+  border: solid red;
 `;
 
 function App() {
@@ -47,13 +36,11 @@ function App() {
           components={item.components}
         />
       ))}
-      <ShiftContainer>
-        <AddButton
-          outline
-          pipe={!!state.length}
-          onClick={() => menageOpenPopup(true)}
-        />
-      </ShiftContainer>
+      <AddButton
+        outline
+        pipe={!!state.length}
+        onClick={() => menageOpenPopup(true)}
+      />
       <Popup
         label="Add detail !"
         placeholder="ex origin Poland"

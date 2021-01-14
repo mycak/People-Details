@@ -1,22 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import SubtreeHeader from './SubtreeHeader';
-import { DetailStyles } from '../styles/SingleItemsStyles';
 import SubtreeBranch from './SubtreeBranch';
 import AddButton from './AddButton';
 import Popup from './Popup';
 import { chceckOrder } from '../utils/chceckOrder';
 import { useMenageState, useMenagePopup } from '../utils/hooks';
-
-const ShiftContainer = styled.div`
-  margin-left: 6.2em;
-  p {
-    margin: 0;
-  }
-  @media (max-width: 800px) {
-    margin-left: 6.8em;
-  }
-`;
 
 const Subtree = ({ desc, handleDeleteTree, id, components }) => {
   const [state, handleDelete, handleAddToState] = useMenageState(components);
@@ -24,7 +12,7 @@ const Subtree = ({ desc, handleDeleteTree, id, components }) => {
   const newId = state.length ? state[state.length - 1].id + 1 : 0;
 
   return (
-    <DetailStyles flex="column">
+    <div>
       <SubtreeHeader desc={desc} handleDelete={handleDeleteTree} id={id} />
       {state.length &&
         state.map((item, i) => (
@@ -38,13 +26,12 @@ const Subtree = ({ desc, handleDeleteTree, id, components }) => {
             handleDelete={handleDelete}
           />
         ))}
-      <ShiftContainer>
-        <AddButton
-          small
-          onClick={() => menageOpenPopup(true)}
-          pipe={!!state.length}
-        />
-      </ShiftContainer>
+      <AddButton
+        className="margin--zero"
+        small
+        onClick={() => menageOpenPopup(true)}
+        pipe={!!state.length}
+      />
       <Popup
         label="Add list item !"
         placeholder="Type here !"
@@ -54,7 +41,7 @@ const Subtree = ({ desc, handleDeleteTree, id, components }) => {
         handleAddToState={handleAddToState}
         listItem={false}
       />
-    </DetailStyles>
+    </div>
   );
 };
 

@@ -47,6 +47,9 @@ const GlobalStyles = createGlobalStyle`
     flex-direction: column;
     align-items: center;
   }
+  .additional--padding {
+    padding-left: 2.5em;
+  }
   .Modal {
     position: absolute;
     background-color: #fff;
